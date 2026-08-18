@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": "multi-agent-architecture-review-board",
+    "environment": "local"
+  },
+  "provider": {
+    "name": "mock",
+    "model": "mock-v1",
+    "timeout_seconds": 30,
+    "max_retries": 2
+  },
+  "workflow": {
+    "stages": [
+      "ingest_architecture_proposal",
+      "independent_domain_reviews",
+      "identify_conflicts_and_missing_evidence",
+      "cross_examination_round",
+      "revise_domain_scores",
+      "judge_against_decision_criteria",
+      "produce_decision_conditions_and_dissent",
+      "generate_review_record_and_adr_input"
+    ],
+    "checkpoint_each_stage": true,
+    "state_directory": "out/state"
+  },
+  "risk": {
+    "default_approval_threshold": "HIGH"
+  },
+  "approval": {
+    "mode": "manual",
+    "required_for_mutations": true
+  },
+  "observability": {
+    "log_level": "INFO",
+    "structured": true
+  },
+  "tools": {
+    "mode": "fake",
+    "allow_mutations": false
+  }
+}

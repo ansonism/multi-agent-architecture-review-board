@@ -1,0 +1,17 @@
+{
+  "case_id": "demo-001",
+  "title": "Starter demo for Multi-Agent Architecture Review Board",
+  "description": "Simulate an enterprise architecture review board with independent domain reviewers and an evidence-based adjudication process that avoids false consensus and makes dissent visible.",
+  "constraints": [
+    "Use mock provider",
+    "No external credentials",
+    "Dry-run only"
+  ],
+  "evidence": [
+    {
+      "id": "ev-1",
+      "type": "user_supplied",
+      "summary": "Example evidence placeholder"
+    }
+  ]
+}

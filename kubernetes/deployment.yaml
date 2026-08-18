@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-agent-architecture-review-board
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multi-agent-architecture-review-board
+  template:
+    metadata:
+      labels:
+        app: multi-agent-architecture-review-board
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+        - name: agent
+          image: REPLACE_WITH_REGISTRY/multi-agent-architecture-review-board:0.1.0
+          args: ["doctor"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
